@@ -1,9 +1,8 @@
 package com.inditex.technicaltest.domain;
 
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -12,7 +11,7 @@ public class Price {
     private Integer brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Integer priceList;
+    private Integer rateId;
     private Long productId;
     private Integer priority;
     private Double price;

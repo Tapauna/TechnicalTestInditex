@@ -53,7 +53,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RateResponse'
+                $ref: '#/components/schemas/RateResponseDTO'
         '400':
           description: Invalid data
         '404':
@@ -68,7 +68,7 @@ paths:
                 $ref: "#/components/schemas/Error"
 components:
   schemas:
-    RateResponse:
+    RateResponseDTO:
       type: object
       properties:
         productId:

@@ -1,13 +1,17 @@
 package com.inditex.technicaltest.infraestructure.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
-@Data
 @Entity
+@Data
 @Builder
 @Table(name="PRICES")
 public class PriceEntity {
@@ -21,7 +25,7 @@ public class PriceEntity {
     @Column(name="END_DATE")
     private LocalDateTime endDate;
     @Column(name="PRICE_LIST")
-    private Integer priceList;
+    private Integer rateId;
     @Column(name="PRODUCT_ID")
     private Long productId;
     @Column(name="PRIORITY")
