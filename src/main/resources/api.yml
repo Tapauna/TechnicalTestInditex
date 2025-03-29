@@ -1,0 +1,106 @@
+openapi: 3.0.4
+info:
+  title: Technical Test Inditex Api - OpenAPI 3.0
+  description: |-
+    Api created for INDITEX Technical Test
+  termsOfService: https://swagger.io/terms/
+  contact:
+    email: grodriguezagrasar@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.12
+externalDocs:
+  description: Find out more about Swagger
+  url: https://swagger.io
+servers:
+  - url: https://localhost:8080/api/v3
+tags:
+  - name: Rates
+    description: Endpoints related to rates
+paths:
+  /getRates:
+    get:
+      tags:
+        - Rates
+      summary: Get rates.
+      description: Obtain rates based on product identifier, date of application, and chain.
+      operationId: getRates
+      parameters:
+        - name: dateOfApplication
+          in: query
+          description: The date on which we want to check the rate to be applied
+          required: true
+          schema:
+            type: string
+            format: date-time
+            example: '2025-03-29T11:51:28Z'
+        - name: productId
+          in: query
+          description: The product identifier
+          required: true
+          schema:
+            type: integer
+        - name: chainId
+          in: query
+          description: The chain identifier
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateResponse'
+        '400':
+          description: Invalid data
+        '404':
+          description: Rate not found
+        '422':
+          description: Validation exception
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    RateResponse:
+      type: object
+      properties:
+        productId:
+          description: The product identifier
+          type: integer
+        chainId:
+          description: The chain identifier
+          type: integer
+        rateId:
+          description: The rate identifier
+          type: integer
+        startDate:
+          type: string
+          description: Date on which the rate starts to apply
+          format: date-time
+          example: '2025-03-29T11:51:28Z'
+        endDate:
+          type: string
+          description: Date on which the rate ends to apply
+          format: date-time
+          example: '2025-03-29T11:51:28Z'
+        finalPrice:
+          type: number
+          description: the final Price
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
