@@ -99,7 +99,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.inditex.technicaltest.TechnicaltestApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -118,6 +117,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <ignoreFileOverride>.openapi-generator-ignore</ignoreFileOverride>
                             <configOptions>
                                 <useJakartaEe>true</useJakartaEe>
                                 <useSpringfox>false</useSpringfox>

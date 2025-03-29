@@ -3,7 +3,6 @@ package com.inditex.technicaltest.domain;
 import lombok.Builder;
 import lombok.Data;
 
-
 import java.time.LocalDateTime;
 
 @Data

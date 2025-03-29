@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: technicaltest
+  datasource:
+    url: jdbc:h2:mem:technicaltestdb
+    driverClassName: org.h2.Driver
+    username: test
+    password: test
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql : true
+    defer-datasource-initialization: true
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
