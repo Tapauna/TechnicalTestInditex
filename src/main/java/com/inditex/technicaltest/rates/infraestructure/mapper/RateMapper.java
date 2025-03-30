@@ -23,7 +23,7 @@ public interface RateMapper {
     if(date==null){
       return null;
     }
-    ZoneId spainZone = ZoneId.of("Europe/Madrid");
+    ZoneId spainZone = ZoneId.of("UTC");
     ZoneOffset offset = spainZone.getRules().getOffset(date);
     return date.atOffset(offset);
   }
