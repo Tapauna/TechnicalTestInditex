@@ -1,19 +1,17 @@
 package com.inditex.technicaltest.infraestructure.database;
 
-import static com.inditex.technicaltest.util.Constants.NOT_RATES_FOUND_MESSAGE;
 import static com.inditex.technicaltest.util.Constants.NOT_RECORDS_FOUND_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import com.inditex.technicaltest.exceptions.domain.NotRatesOnDateException;
 import com.inditex.technicaltest.exceptions.domain.NotRecordsFoundException;
-import com.inditex.technicaltest.rates.domain.model.Price;
-import com.inditex.technicaltest.rates.infraestructure.database.JpaPriceRepository;
-import com.inditex.technicaltest.rates.infraestructure.database.PriceRepositoryImpl;
-import com.inditex.technicaltest.rates.infraestructure.database.entity.PriceEntity;
-import com.inditex.technicaltest.rates.infraestructure.mapper.PriceMapper;
+import com.inditex.technicaltest.rates.domain.model.Rate;
+import com.inditex.technicaltest.rates.infraestructure.database.JpaRateRepository;
+import com.inditex.technicaltest.rates.infraestructure.database.RateRepositoryImpl;
+import com.inditex.technicaltest.rates.infraestructure.database.entity.RateEntity;
+import com.inditex.technicaltest.rates.infraestructure.mapper.RateMapper;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
@@ -24,24 +22,24 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class PriceRepositoryImplTest {
+public class RateRepositoryImplTest {
   @InjectMocks
-  PriceRepositoryImpl priceRepository;
+  RateRepositoryImpl priceRepository;
   @Mock
-  JpaPriceRepository jpaPriceRepository;
+  JpaRateRepository jpaRateRepository;
   @Mock
-  PriceMapper priceMapper;
+  RateMapper rateMapper;
 
   @Test
   public void queryOk(){
     Integer productId=35455;
     Integer chainId=1;
-    PriceEntity priceEntity= PriceEntity.builder().build();
-    Price price=Price.builder().build();
-    when(this.jpaPriceRepository.findByBrandIdAndProductId(any(),any())).
-        thenReturn(Optional.of(List.of(priceEntity)));
-    when(this.priceMapper.priceEntityListToPriceList(any())).thenReturn(List.of(price));
-    List<Price> result=this.priceRepository.getPricesByChainIdAndProductId(chainId,productId);
+    RateEntity rateEntity = RateEntity.builder().build();
+    Rate rate = Rate.builder().build();
+    when(this.jpaRateRepository.findByBrandIdAndProductId(any(),any())).
+        thenReturn(Optional.of(List.of(rateEntity)));
+    when(this.rateMapper.priceEntityListToPriceList(any())).thenReturn(List.of(rate));
+    List<Rate> result=this.priceRepository.getPricesByChainIdAndProductId(chainId,productId);
     Assertions.assertEquals(1,result.size());
   }
 
@@ -49,7 +47,7 @@ public class PriceRepositoryImplTest {
   public void queryEmpty(){
     Integer productId=35455;
     Integer chainId=1;
-    when(this.jpaPriceRepository.findByBrandIdAndProductId(any(),any())).
+    when(this.jpaRateRepository.findByBrandIdAndProductId(any(),any())).
         thenReturn(Optional.empty());
     Exception exception = assertThrows(NotRecordsFoundException.class, () -> {
       this.priceRepository.getPricesByChainIdAndProductId(chainId,productId);

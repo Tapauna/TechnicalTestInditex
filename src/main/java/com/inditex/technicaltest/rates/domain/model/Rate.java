@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Price {
+public class Rate {
     private Long id;
     private Integer brandId;
     private LocalDateTime startDate;

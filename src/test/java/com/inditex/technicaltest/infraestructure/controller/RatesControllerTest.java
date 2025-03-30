@@ -5,11 +5,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import com.inditex.technicaltest.rates.application.RatesUseCase;
-import com.inditex.technicaltest.rates.domain.model.Price;
+import com.inditex.technicaltest.rates.domain.model.Rate;
 import com.inditex.technicaltest.rates.infraestructure.controller.RatesController;
-import com.inditex.technicaltest.rates.infraestructure.mapper.PriceMapper;
+import com.inditex.technicaltest.rates.infraestructure.mapper.RateMapper;
 import java.time.OffsetDateTime;
-import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,7 +25,7 @@ public class RatesControllerTest {
   @Mock
   private RatesUseCase ratesUseCase;
   @Mock
-  private PriceMapper priceMapper;
+  private RateMapper rateMapper;
 
   @Test
   void getRatesTestOk(){
@@ -35,8 +34,8 @@ public class RatesControllerTest {
     OffsetDateTime dateOfApplication=OffsetDateTime.now();
     RateResponseDTO responseDTO=new RateResponseDTO();
     when(this.ratesUseCase.getRateByDate(any(),any(),any())).thenReturn(
-        Price.builder().build());
-    when(this.priceMapper.priceToRateResponseDTO(any())).thenReturn(responseDTO);
+        Rate.builder().build());
+    when(this.rateMapper.priceToRateResponseDTO(any())).thenReturn(responseDTO);
     ResponseEntity<RateResponseDTO> response=this.ratesController.getRates(dateOfApplication,chainId,productId);
     assertEquals(200,response.getStatusCode().value());
     assertEquals(responseDTO,response.getBody());
