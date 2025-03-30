@@ -1,11 +1,16 @@
-package com.inditex.technicaltest.domain;
+package com.inditex.technicaltest.domain.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Price {
     private Long id;
     private Integer brandId;
@@ -14,6 +19,6 @@ public class Price {
     private Integer rateId;
     private Long productId;
     private Integer priority;
-    private Double price;
+    private BigDecimal price;
     private String currency;
 }

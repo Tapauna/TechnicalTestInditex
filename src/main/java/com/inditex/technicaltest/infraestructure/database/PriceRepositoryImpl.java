@@ -1,17 +1,19 @@
-package com.inditex.technicaltest.infraestructure.repository;
+package com.inditex.technicaltest.infraestructure.database;
 
-import com.inditex.technicaltest.domain.Price;
-import com.inditex.technicaltest.domain.PriceRepository;
-import com.inditex.technicaltest.infraestructure.entity.PriceEntity;
+import com.inditex.technicaltest.domain.model.Price;
+import com.inditex.technicaltest.domain.repository.PriceRepository;
+import com.inditex.technicaltest.infraestructure.database.entity.PriceEntity;
 import com.inditex.technicaltest.infraestructure.mapper.PriceMapper;
 import java.util.List;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class PriceRepositoryImpl implements PriceRepository {
-  private JpaPriceRepository jpaRepository;
-  private PriceMapper priceMapper;
+  private final JpaPriceRepository jpaRepository;
+  private final PriceMapper priceMapper;
   @Override
   public List<Price> getPricesByChainIdAndProductId(Integer chainId, Integer productId) {
     if(chainId!=null && productId!=null){

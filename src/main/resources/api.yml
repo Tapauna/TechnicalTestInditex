@@ -74,7 +74,7 @@ components:
         productId:
           description: The product identifier
           type: integer
-        chainId:
+        brandId:
           description: The chain identifier
           type: integer
         rateId:
@@ -90,7 +90,7 @@ components:
           description: Date on which the rate ends to apply
           format: date-time
           example: '2025-03-29T11:51:28Z'
-        finalPrice:
+        price:
           type: number
           description: the final Price
 

@@ -1,6 +1,6 @@
-package com.inditex.technicaltest.infraestructure.repository;
+package com.inditex.technicaltest.infraestructure.database;
 
-import com.inditex.technicaltest.infraestructure.entity.PriceEntity;
+import com.inditex.technicaltest.infraestructure.database.entity.PriceEntity;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
