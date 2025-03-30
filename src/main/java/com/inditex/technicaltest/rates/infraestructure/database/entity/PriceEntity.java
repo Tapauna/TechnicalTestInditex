@@ -1,4 +1,4 @@
-package com.inditex.technicaltest.infraestructure.database.entity;
+package com.inditex.technicaltest.rates.infraestructure.database.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +32,7 @@ public class PriceEntity {
     @Column(name="PRICE_LIST")
     private Integer rateId;
     @Column(name="PRODUCT_ID")
-    private Long productId;
+    private Integer productId;
     @Column(name="PRIORITY")
     private Integer priority;
     @Column(name="PRICE")

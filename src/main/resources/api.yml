@@ -30,7 +30,6 @@ paths:
         - name: dateOfApplication
           in: query
           description: The date on which we want to check the rate to be applied
-          required: true
           schema:
             type: string
             format: date-time
@@ -38,13 +37,11 @@ paths:
         - name: productId
           in: query
           description: The product identifier
-          required: true
           schema:
             type: integer
         - name: chainId
           in: query
           description: The chain identifier
-          required: true
           schema:
             type: integer
       responses:
@@ -56,6 +53,10 @@ paths:
                 $ref: '#/components/schemas/RateResponseDTO'
         '400':
           description: Invalid data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorDTO"
         '404':
           description: Rate not found
         '422':
@@ -65,7 +66,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/ErrorDTO"
 components:
   schemas:
     RateResponseDTO:
@@ -94,11 +95,11 @@ components:
           type: number
           description: the final Price
 
-    Error:
+    ErrorDTO:
       type: object
       properties:
         code:
-          type: string
+          type: integer
         message:
           type: string
       required:

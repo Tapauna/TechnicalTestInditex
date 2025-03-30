@@ -1,7 +1,7 @@
-package com.inditex.technicaltest.infraestructure.mapper;
+package com.inditex.technicaltest.rates.infraestructure.mapper;
 
-import com.inditex.technicaltest.domain.model.Price;
-import com.inditex.technicaltest.infraestructure.database.entity.PriceEntity;
+import com.inditex.technicaltest.rates.domain.model.Price;
+import com.inditex.technicaltest.rates.infraestructure.database.entity.PriceEntity;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;

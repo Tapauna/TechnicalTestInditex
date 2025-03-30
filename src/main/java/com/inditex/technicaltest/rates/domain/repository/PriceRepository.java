@@ -1,6 +1,6 @@
-package com.inditex.technicaltest.domain.repository;
+package com.inditex.technicaltest.rates.domain.repository;
 
-import com.inditex.technicaltest.domain.model.Price;
+import com.inditex.technicaltest.rates.domain.model.Price;
 import java.util.List;
 
 public interface PriceRepository {

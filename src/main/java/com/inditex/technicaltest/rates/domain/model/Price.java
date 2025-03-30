@@ -1,4 +1,4 @@
-package com.inditex.technicaltest.domain.model;
+package com.inditex.technicaltest.rates.domain.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ public class Price {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Integer rateId;
-    private Long productId;
+    private Integer productId;
     private Integer priority;
     private BigDecimal price;
     private String currency;
