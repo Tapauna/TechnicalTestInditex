@@ -15,6 +15,12 @@ import org.springframework.stereotype.Repository;
 public class RateRepositoryImpl implements RateRepository {
   private final JpaRateRepository jpaRepository;
   private final RateMapper rateMapper;
+  /**
+   * Call to the database to consult the rates given the chain and the product
+   * @param chainId the chain id
+   * @param productId the product id
+   * @return The list of recovered rates
+   */
   @Override
   public List<Rate> getPricesByChainIdAndProductId(Integer chainId, Integer productId) {
     return jpaRepository.findByBrandIdAndProductId(chainId,productId)

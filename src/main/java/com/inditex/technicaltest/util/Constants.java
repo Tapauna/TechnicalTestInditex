@@ -1,5 +1,8 @@
 package com.inditex.technicaltest.util;
 
+/**
+ * Class where the different counters used in the project are defined.
+ */
 public class Constants {
   public static final String INVALID_PARAMETERS_MESSAGE="Some parameters of the request are invalid";
   public static final String LOG_INPUT_PARAMS="Request received with input parameters dateOfApplication: %s brandId: %s productId: %s";

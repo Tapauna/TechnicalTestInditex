@@ -11,6 +11,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.openapitools.model.RateResponseDTO;
 
+/**
+ * Class in charge of managing the various tariff-related mappings
+ */
 @Mapper(componentModel = "spring")
 public interface RateMapper {
   List<Rate> priceEntityListToPriceList(List<RateEntity> src);

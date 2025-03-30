@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * Class in charge of managing the different types of exceptions in the project.
+ */
 @RestControllerAdvice
 public class ServiceExceptionHandler {
 
